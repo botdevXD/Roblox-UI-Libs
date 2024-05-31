@@ -3888,6 +3888,22 @@ do
         --
         utility:LoadImage(configLoader_gradient, "gradient", "https://i.imgur.com/5hmlrjX.png")
         --
+
+	function configLoader:addConfig(configName)
+            local config_title = utility:Create("TextLabel", {Vector2.new(configLoader_frame.Size.X/2,2 + (18 * (i-1))), configLoader_frame}, {
+                Text = configName,
+                Size = theme.textsize,
+                Font = theme.font,
+                Color = i == 1 and theme.accent or theme.textcolor,
+                OutlineColor = theme.textborder,
+                Center = true,
+                Position = utility:Position(0.5, 0, 0, 2 + (18 * (i-1)), configLoader_frame),
+                Visible = page.open
+            }, section.visibleContent)
+            --
+            configLoader.buttons[i] = config_title
+	end
+
         function configLoader:Refresh()
             for i,v in pairs(configLoader.buttons) do
                 v.Color = i == configLoader.current and theme.accent or theme.textcolor
