@@ -597,7 +597,7 @@ do
             --
             uis.MouseIconEnabled = true
 
-		print(self.main_frame)
+		self.main_frame:Remove()
         end
         --
         function window:Watermark(info)
