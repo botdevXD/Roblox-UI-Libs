@@ -596,6 +596,8 @@ do
             library.changed = nil
             --
             uis.MouseIconEnabled = true
+
+		print(self.main_frame)
         end
         --
         function window:Watermark(info)
