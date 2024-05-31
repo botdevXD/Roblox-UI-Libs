@@ -1,6 +1,8 @@
 --// CUSTOM DRAWING
 
 local function cloneTable(tbl)
+    if not tbl then return {} end
+    
     local newTable = {}
     for i, v in next, tbl do
         newTable[i] = v
