@@ -1004,6 +1004,7 @@ do
         utility:Connection(uis.InputBegan,function(Input)
             for _, func in pairs(library.began) do
                 if not window.dragging then
+		print("heyy")
                     local e,s = pcall(function()
                         func(Input)
                     end)
