@@ -461,7 +461,9 @@ do
             --
             for i,v in pairs(config) do
                 if library.pointers[i] then
-                    library.pointers[i]:Set(v)
+                    pcall(function()
+			library.pointers[i]:Set(v)			
+			end)
                 end
             end
         end
