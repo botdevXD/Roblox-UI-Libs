@@ -1,5 +1,13 @@
 --// CUSTOM DRAWING
 
+local function cloneTable(tbl)
+    local newTable = {}
+    for i, v in next, tbl do
+        newTable[i] = v
+    end
+    return newTable
+end
+
 local drawing = {} do
     local services = setmetatable({}, {
         __index = function(self, key)
@@ -1010,7 +1018,7 @@ end
 function utility.table(tbl, usemt)
     tbl = tbl or {}
 
-    local oldtbl = table.clone(tbl)
+    local oldtbl = cloneTable(tbl)
     table.clear(tbl)
 
     for i, v in next, oldtbl do
@@ -1076,7 +1084,7 @@ end
 
 function utility.rgba(r, g, b, alpha)
     local rgb = Color3.fromRGB(r, g, b)
-    local mt = table.clone(getrawmetatable(rgb))
+    local mt = cloneTable(getrawmetatable(rgb))
     
     setreadonly(mt, false)
     local old = mt.__index
@@ -1130,7 +1138,7 @@ local themes = {
 
 local themeobjects = {}
 
-local library = utility.table({theme = table.clone(themes.Default), folder = "vozoiduilib", extension = "vozoid", flags = {}, open = true, keybind = Enum.KeyCode.RightShift, mousestate = services.InputService.MouseIconEnabled, cursor = nil, holder = nil, connections = {}}, true)
+local library = utility.table({theme = cloneTable(themes.Default), folder = "vozoiduilib", extension = "vozoid", flags = {}, open = true, keybind = Enum.KeyCode.RightShift, mousestate = services.InputService.MouseIconEnabled, cursor = nil, holder = nil, connections = {}}, true)
 local decode = (syn and syn.crypt.base64.decode) or (crypt and crypt.base64decode) or base64_decode
 library.gradient = decode("iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVChTxY9BDoAgDASLGD2ReOYNPsR/+BAfroI7hibe9OYmky2wbUPIOdsXdc1f9WMwppQm+SDGBnUvomAQBH49qzhFEag25869ElzaIXDhD4JGbyoEVxUedN8FKwnfmwhucgKICc+pNB1mZhdCdhsa2ky0FAAAAABJRU5ErkJggg==")
 library.utility = utility
@@ -1344,7 +1352,7 @@ function library:SetTheme(theme)
     self.currenttheme = theme
 
     if themes[theme] then
-        self.theme = table.clone(themes[theme])
+        self.theme = cloneTable(themes[theme])
 
         for object, color in next, themeobjects do
             if rawget(object, "exists") == true then
@@ -1924,7 +1932,7 @@ function library.createdropdown(holder, content, flag, callback, default, max, s
     end
 
     function dropdowntypes:Refresh(tbl)
-        content = table.clone(tbl)
+        content = cloneTable(tbl)
         count = 0
 
         for _, opt in next, optioninstances do
@@ -2788,7 +2796,7 @@ function library:Load(options)
     end
 
     self.currenttheme = theme
-    self.theme = table.clone(themes[theme])
+    self.theme = cloneTable(themes[theme])
 
     for opt, value in next, overrides do
         self.theme[opt] = value
