@@ -1941,6 +1941,7 @@ do
             keybind:Change(def)
             --
             library.began[#library.began + 1] = function(Input)
+				print(Input)
                 if keybind.current[1] and keybind.current[2] then
                     if Input.KeyCode == Enum[keybind.current[1]][keybind.current[2]] or Input.UserInputType == Enum[keybind.current[1]][keybind.current[2]] then
                         if keybind.mode == "Hold" then
