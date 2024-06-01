@@ -30,6 +30,7 @@ local library = {
     }
 }
 --
+--[[
 if not isfolder(library.folders.main) then
     makefolder(library.folders.main)
 end
@@ -41,6 +42,8 @@ end
 if not isfolder(library.folders.configs) then
     makefolder(library.folders.configs)
 end
+
+]]
 --
 local utility = {}
 local pages = {}
