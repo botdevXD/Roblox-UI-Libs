@@ -30,7 +30,6 @@ local library = {
     }
 }
 --
---[[
 if not isfolder(library.folders.main) then
     makefolder(library.folders.main)
 end
@@ -42,8 +41,6 @@ end
 if not isfolder(library.folders.configs) then
     makefolder(library.folders.configs)
 end
-
-]]
 --
 local utility = {}
 local pages = {}
@@ -2484,6 +2481,9 @@ do
             return dropdown.current
         end
         --
+
+        task.spawn(callback, dropdown.current)
+
         library.began[#library.began + 1] = function(Input)
             if Input.UserInputType == Enum.UserInputType.MouseButton1 and window.isVisible and dropdown_outline.Visible then
                 if dropdown.open and dropdown.holder.inline and utility:MouseOverDrawing({dropdown.holder.inline.Position.X, dropdown.holder.inline.Position.Y, dropdown.holder.inline.Position.X + dropdown.holder.inline.Size.X, dropdown.holder.inline.Position.Y + dropdown.holder.inline.Size.Y}) then
