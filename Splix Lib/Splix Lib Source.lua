@@ -443,11 +443,37 @@ do
         });window["tab_frame"] = tab_frame
         --
 
-	function window:MAKE_IT_RGB()
-		local rgbColor = Color3.fromHSV(tick() % 20/20, 0.4, 1)
+        --[[
+    drawings = {},
+    hidden = {},
+        ]]
 
-		frame_inline.Color = rgbColor
-	end
+        local ACCENT_BASED_ELEMENTOS = {}
+
+        function window:MAKE_IT_RGB()
+
+            for _, Elemento in ipairs(library.drawings) done
+                if Elemento.Color == theme.accent then
+                    table.insert(ACCENT_BASED_ELEMENTOS, Elemento)
+
+                    Elemento.Color = Color3.fromRGB(255, 255, 255)
+                end
+            end
+
+            for _, Elemento in ipairs(library.hidden) done
+                if Elemento.Color == theme.accent then
+                    table.insert(ACCENT_BASED_ELEMENTOS, Elemento)
+
+                    Elemento.Color = Color3.fromRGB(255, 255, 255)
+                end
+            end
+
+            local rgbColor = Color3.fromHSV(tick() % 20/5, 0.4, 1)
+
+            for _, Elemento in ipairs(ACCENT_BASED_ELEMENTOS) do
+                Elemento.Color = rgbColor
+            end
+        end
 		
         function window:GetConfig()
             local config = {}
