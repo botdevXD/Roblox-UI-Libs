@@ -47,6 +47,7 @@ local pages = {}
 local sections = {}
 -- Theme Variables
 --local themes = {}
+
 local theme = {
     accent = Color3.fromRGB(50, 100, 255),
     light_contrast = Color3.fromRGB(30, 30, 30),
@@ -441,6 +442,13 @@ do
             Color = theme.light_contrast
         });window["tab_frame"] = tab_frame
         --
+
+	function window:MAKE_IT_RGB()
+		local rgbColor = Color3.fromHSV(tick() % 20/20, 0.4, 1)
+
+		theme.accent = rgbColor
+	end
+		
         function window:GetConfig()
             local config = {}
             --
