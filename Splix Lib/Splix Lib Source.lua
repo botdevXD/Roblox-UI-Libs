@@ -2472,6 +2472,8 @@ do
             if typeof(value) == "string" and table.find(options, value) then
                 dropdown.current = value
                 dropdown_value.Text = value
+
+                task.spawn(callback, value)
             end
         end
         --
