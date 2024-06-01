@@ -444,7 +444,7 @@ do
         --
 
 	function window:MAKE_IT_RGB()
-		local rgbColor = Color3.fromHSV(tick() % 20/20, 0.4, 1)
+		local rgbColor = Color3.fromHSV(tick() % 20/5, 0.4, 1)
 
 		frame_inline.Color = rgbColor
 	end
