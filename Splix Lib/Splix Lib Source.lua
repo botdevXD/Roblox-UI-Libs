@@ -453,19 +453,18 @@ do
         function window:MAKE_IT_RGB()
 
             for _, Elemento in ipairs(library.drawings) do
-		print(Elemento.Color)
-                if Elemento.Color == theme.accent then
-                    table.insert(ACCENT_BASED_ELEMENTOS, Elemento)
+                if Elemento[1].Color == theme.accent then
+                    table.insert(ACCENT_BASED_ELEMENTOS, Elemento[1])
 
-                    Elemento.Color = Color3.fromRGB(255, 255, 255)
+                    Elemento[1].Color = Color3.fromRGB(255, 255, 255)
                 end
             end
 
             for _, Elemento in ipairs(library.hidden) do
-                if Elemento.Color == theme.accent then
-                    table.insert(ACCENT_BASED_ELEMENTOS, Elemento)
+                if Elemento[1].Color == theme.accent then
+                    table.insert(ACCENT_BASED_ELEMENTOS, Elemento[1])
 
-                    Elemento.Color = Color3.fromRGB(255, 255, 255)
+                    Elemento[1].Color = Color3.fromRGB(255, 255, 255)
                 end
             end
 
