@@ -446,7 +446,7 @@ do
 	function window:MAKE_IT_RGB()
 		local rgbColor = Color3.fromHSV(tick() % 20/20, 0.4, 1)
 
-		theme.accent = rgbColor
+		frame_inline.Color = rgbColor
 	end
 		
         function window:GetConfig()
