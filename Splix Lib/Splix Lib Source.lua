@@ -452,7 +452,7 @@ do
 
         function window:MAKE_IT_RGB()
 
-            for _, Elemento in ipairs(library.drawings) done
+            for _, Elemento in ipairs(library.drawings) do
                 if Elemento.Color == theme.accent then
                     table.insert(ACCENT_BASED_ELEMENTOS, Elemento)
 
@@ -460,7 +460,7 @@ do
                 end
             end
 
-            for _, Elemento in ipairs(library.hidden) done
+            for _, Elemento in ipairs(library.hidden) do
                 if Elemento.Color == theme.accent then
                     table.insert(ACCENT_BASED_ELEMENTOS, Elemento)
 
