@@ -2488,7 +2488,7 @@ do
                             dropdown_value.Text = dropdown.current
                             dropdown:Update()
 
-                            callback(dropdown.current)
+                            task.spawn(callback, dropdown.current)
                         end
                     end
                 elseif utility:MouseOverDrawing({section.section_frame.Position.X, section.section_frame.Position.Y + dropdown.axis, section.section_frame.Position.X + section.section_frame.Size.X, section.section_frame.Position.Y + dropdown.axis + 15 +  20}) and not window:IsOverContent() then
