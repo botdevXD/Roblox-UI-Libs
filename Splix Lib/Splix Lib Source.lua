@@ -1408,7 +1408,7 @@ do
         local page = self.page
         local section = self
         --
-        local toggle = {axis = section.currentAxis, current = def, addedAxis = 0, colorpickers = 0, keybind = nil}
+        local toggle = {name = name, axis = section.currentAxis, current = def, addedAxis = 0, colorpickers = 0, keybind = nil}
         --
         local toggle_outline = utility:Create("Frame", {Vector2.new(4,toggle.axis), section.section_frame}, {
             Size = utility:Size(0, 15, 0, 15),
