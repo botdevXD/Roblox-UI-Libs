@@ -1186,9 +1186,10 @@ function library:Init(key)
             return LabelFunctions
         end
 
-        function Components:NewButton(text, callback)
-            text = text or "button"
-            callback = callback or function() end
+        function Components:Button(info)
+            info = info or {}
+            local text = info.Name or "button"
+            local callback = info.Callback or info.callback or function() end
 
             local buttonFrame = Instance.new("Frame")
             local buttonLayout = Instance.new("UIListLayout")
@@ -1554,10 +1555,11 @@ function library:Init(key)
 
         --
 
-        function Components:NewToggle(text, default, callback)
-            text = text or "toggle"
-            default = default or false
-            callback = callback or function() end
+        function Components:Toggle(info)
+            info = info or {}
+            local text = info.Name or "toggle"
+            local default = info.default or info.Default or false
+            local callback = info.Callback or info.callback or function() end
 
             local toggleButton = Instance.new("TextButton")
             local toggleLayout = Instance.new("UIListLayout")
@@ -1739,9 +1741,9 @@ function library:Init(key)
             end
             UpdatePageSize()
             --
-            function ToggleFunctions:AddKeybind(default_t)
-                callback_t = callback
-                default_t = default_t or Enum.KeyCode.P
+            function ToggleFunctions:Keybind(info)
+                local callback_t = info.Callback or info.callback or function()end
+                local default_t = info.Default or info.default or Enum.KeyCode.P
                 
                 local keybind = Instance.new("TextButton")
                 local keybindCorner = Instance.new("UICorner")
