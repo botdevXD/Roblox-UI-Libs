@@ -1026,8 +1026,9 @@ function library:Init(key)
         CurrentTab = ""
     }
     CreateTween("tab_text_colour", 0.16)
-    function TabLibrary:NewTab(title)
-        title = title or "tab"
+    function TabLibrary:Page(info)
+        info = info or {}
+        local title = info.Name or "tab"
 
         local tabButton = Instance.new("TextButton")
         local page = Instance.new("ScrollingFrame")
@@ -1466,8 +1467,9 @@ function library:Init(key)
         end
         --
 
-        function Components:NewSection(text)
-            text = text or "section"
+        function Components:NewSection(info)
+            info = info or {}
+            local text = info.Name or "section"
 
             local sectionFrame = Instance.new("Frame")
             local sectionLayout = Instance.new("UIListLayout")
