@@ -1467,7 +1467,7 @@ function library:Init(key)
         end
         --
 
-        function Components:NewSection(info)
+        function Components:Section(info)
             info = info or {}
             local text = info.Name or "section"
 
