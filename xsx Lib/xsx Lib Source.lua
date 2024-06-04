@@ -1906,8 +1906,8 @@ function library:Init(key)
         function Components:Keybind(info)
             info = info or {}
             local text = info.Name or "keybind"
-            local callback_t = info.Callback or info.callback or function()end
-            local default_t = info.Default or info.default or Enum.KeyCode.P
+            local callback = info.Callback or info.callback or function()end
+            local default = info.Default or info.default or Enum.KeyCode.P
 
             local keybindFrame = Instance.new("Frame")
             local keybindButton = Instance.new("TextButton")
@@ -2044,7 +2044,7 @@ function library:Init(key)
                 Return = "enter"
             }
 
-            keybindButtonLabel.Text = Shortcuts[default] or default
+            keybindButtonLabel.Text = Shortcuts[default.Name] or default.Name
             CreateTween("keybind", 0.08)
             
             local NewKeybindSize = TextService:GetTextSize(keybindButtonLabel.Text, keybindButtonLabel.TextSize, keybindButtonLabel.Font, Vector2.new(math.huge,math.huge))
