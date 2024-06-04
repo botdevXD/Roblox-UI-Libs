@@ -841,15 +841,17 @@ function library:Introduction()
     introduction:Destroy()
 end
 
-function library:New(key)
+function library:New(info)
+    info = info or {}
+
     for _,v in next, CoreGuiService:GetChildren() do
         if v.Name == "screen" then
             v:Destroy()
         end
     end
 
-    local title = library.title
-    key = key or Enum.KeyCode.RightAlt
+    local title = info.title or info.Title or info.name or info.Name or library.title
+    local key = info.Bind or info.bind or Enum.KeyCode.Insert
 
     local screen = Instance.new("ScreenGui")
     local edge = Instance.new("Frame")
