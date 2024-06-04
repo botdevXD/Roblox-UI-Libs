@@ -841,7 +841,7 @@ function library:Introduction()
     introduction:Destroy()
 end
 
-function library:Init(key)
+function library:New(key)
     for _,v in next, CoreGuiService:GetChildren() do
         if v.Name == "screen" then
             v:Destroy()
@@ -2085,11 +2085,9 @@ function library:Init(key)
             local ChatTextBox = Player.PlayerGui.Chat.Frame.ChatBarParentFrame.Frame.BoxFrame.Frame.ChatBar
             if UserInputService.WindowFocused then
                 UserInputService.InputBegan:Connect(function(c, p)
-                    if not p then
-                        if c.KeyCode.Name == ChosenKey and not ChatTextBox:IsFocused() then
-                            callback(ChosenKey)
-                            return
-                        end
+                    if c.KeyCode.Name == ChosenKey and not ChatTextBox:IsFocused() then
+                        callback(ChosenKey)
+                        return
                     end
                 end)
             end
