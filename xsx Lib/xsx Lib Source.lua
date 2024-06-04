@@ -2062,7 +2062,7 @@ function library:New(key)
             keybindButtonLabel:GetPropertyChangedSignal("Text"):Connect(ResizeKeybind)
             ResizeKeybind()
 
-            local ChosenKey = default
+            local ChosenKey = default.Name
             keybindButton.MouseButton1Click:Connect(function()
                 keybindButtonLabel.Text = "..."
                 local InputWait = UserInputService.InputBegan:wait()
