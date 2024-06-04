@@ -2887,11 +2887,13 @@ function library:Init(key)
             end
         end
         --
-        function Components:NewSelector(text, default, list, callback)
-            text = text or "selector"
-            default = default or ". . ."
-            list = list or {}
-            callback = callback or function() end
+
+        function Components:Dropdown(info)
+            info = info or {}
+            local text = info.Name or "selector"
+            local default = info.Default or info.default or ". . ."
+            local list = info.list or info.options or info.Options or {}
+            local callback = info.Callback or info.callback or function() end
 
             local selectorFrame = Instance.new("Frame")
             local selectorLabel = Instance.new("TextLabel")
