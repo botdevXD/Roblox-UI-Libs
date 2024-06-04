@@ -1908,6 +1908,7 @@ function library:New(key)
             local text = info.Name or "keybind"
             local callback = info.Callback or info.callback or function()end
             local default = info.Default or info.default or Enum.KeyCode.P
+            local keyBindMode = info.mode or info.Mode or "Hold"
 
             local keybindFrame = Instance.new("Frame")
             local keybindButton = Instance.new("TextButton")
@@ -2084,10 +2085,18 @@ function library:New(key)
 
             local ChatTextBox = Player.PlayerGui.Chat.Frame.ChatBarParentFrame.Frame.BoxFrame.Frame.ChatBar
             if UserInputService.WindowFocused then
-                UserInputService.InputBegan:Connect(function(c, p)
+                UserInputService.InputBegan:Connect(function(c)
                     if c.KeyCode.Name == ChosenKey and not ChatTextBox:IsFocused() then
                         callback(ChosenKey)
                         return
+                    end
+                end)
+
+                UserInputService.InputEnded:Connect(function(c)
+                    if keyBindMode == "Hold" then
+                        if c.KeyCode.Name == ChosenKey then
+                            task.spawn(callback, ChosenKey)
+                        end
                     end
                 end)
             end
