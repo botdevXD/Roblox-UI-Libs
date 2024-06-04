@@ -1028,6 +1028,9 @@ function library:New(info)
         CurrentTab = ""
     }
     CreateTween("tab_text_colour", 0.16)
+
+    function TabLibrary:UnLoad()end
+  
     function TabLibrary:Page(info)
         info = info or {}
         local title = info.Name or "tab"
