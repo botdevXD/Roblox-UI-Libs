@@ -3190,17 +3190,19 @@ function library:Init(key)
             return SelectorFunctions
         end
         --
-        function Components:NewSlider(text, suffix, compare, compareSign, values, callback)
-            text = text or "slider"
-            suffix = suffix or ""
-            compare = compare or false
-            compareSign = compareSign or "/"
-            values = values or {
-                min = values.min or 0,
-                max = values.max or 100,
-                default = values.default or 0
+        function Components:Slider(info)
+            info = info or {}
+
+            local text = info.Name or "slider"
+            local suffix = info.suffix or ""
+            local compare = info.compare or false
+            local compareSign = info.compareSign or "/"
+            local values = {
+                min = info.Minimum or 0,
+                max = info.Maximum or 100,
+                default = info.Default or 0
             }
-            callback = callback or function() end
+            local callback = info.Callback or info.callback or function() end
 
             values.max = values.max + 1
 
