@@ -2044,7 +2044,7 @@ function library:Init(key)
                 Return = "enter"
             }
 
-            keybindButtonLabel.Text = Shortcuts[default.Name] or default.Name
+            keybindButtonLabel.Text = Shortcuts[default] or default
             CreateTween("keybind", 0.08)
             
             local NewKeybindSize = TextService:GetTextSize(keybindButtonLabel.Text, keybindButtonLabel.TextSize, keybindButtonLabel.Font, Vector2.new(math.huge,math.huge))
