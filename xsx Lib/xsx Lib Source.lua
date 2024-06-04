@@ -1550,7 +1550,7 @@ function library:Init(key)
                 return SectionFunctions
             end
             --
-            return SectionFunctions
+            return Components
         end
 
         --
