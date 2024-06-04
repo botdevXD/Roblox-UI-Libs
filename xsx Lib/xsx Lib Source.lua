@@ -1741,7 +1741,7 @@ function library:Init(key)
             end
             UpdatePageSize()
             --
-            function ToggleFunctions:Keybind(info)
+            function ToggleFunctions:NewKeybind(info)
                 local callback_t = info.Callback or info.callback or function()end
                 local default_t = info.Default or info.default or Enum.KeyCode.P
                 
@@ -1903,10 +1903,11 @@ function library:Init(key)
             return ToggleFunctions
         end
 
-        function Components:NewKeybind(text, default, callback)
-            text = text or "keybind"
-            default = default or Enum.KeyCode.P
-            callback = callback or function() end
+        function Components:Keybind(info)
+            info = info or {}
+            local text = info.Name or "keybind"
+            local callback_t = info.Callback or info.callback or function()end
+            local default_t = info.Default or info.default or Enum.KeyCode.P
 
             local keybindFrame = Instance.new("Frame")
             local keybindButton = Instance.new("TextButton")
