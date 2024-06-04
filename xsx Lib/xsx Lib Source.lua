@@ -1029,7 +1029,7 @@ function library:New(info)
     }
     CreateTween("tab_text_colour", 0.16)
 
-    function TabLibrary:UnLoad()end
+    function TabLibrary:Unload()end
   
     function TabLibrary:Page(info)
         info = info or {}
