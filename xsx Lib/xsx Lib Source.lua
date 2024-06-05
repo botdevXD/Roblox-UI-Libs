@@ -2096,10 +2096,10 @@ function library:New(info)
                 end
             end)
 
-            local ChatTextBox = Player.PlayerGui.Chat.Frame.ChatBarParentFrame.Frame.BoxFrame.Frame.ChatBar
+            --local ChatTextBox = Player.PlayerGui.Chat.Frame.ChatBarParentFrame.Frame.BoxFrame.Frame.ChatBar
             if UserInputService.WindowFocused then
-                table.insert(shared.xsx_lib_connections, UserInputService.InputBegan:Connect(function(c)
-                    if c.KeyCode.Name == ChosenKey and not ChatTextBox:IsFocused() then
+                table.insert(shared.xsx_lib_connections, UserInputService.InputBegan:Connect(function(c, ENGINE_PROCESS)
+                    if c.KeyCode.Name == ChosenKey and not ENGINE_PROCESS then
                         callback(ChosenKey)
                         return
                     end
