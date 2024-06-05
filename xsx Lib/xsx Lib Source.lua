@@ -5,6 +5,14 @@
     problem with other people using it, please just make sure you message me and ask me before using.
 ]]
 
+shared.xsx_lib_connections = shared.xsx_lib_connections or {}
+
+for _, Con in pairs(shared.xsx_lib_connections) do
+    pcall(Con.Disconnect, Con)
+end
+
+table.clear(shared.xsx_lib_connections)
+
 -- / Locals
 local Workspace = game:GetService("Workspace")
 local Player = game:GetService("Players").LocalPlayer
@@ -2090,20 +2098,20 @@ function library:New(info)
 
             local ChatTextBox = Player.PlayerGui.Chat.Frame.ChatBarParentFrame.Frame.BoxFrame.Frame.ChatBar
             if UserInputService.WindowFocused then
-                UserInputService.InputBegan:Connect(function(c)
+                table.insert(shared.xsx_lib_connections, UserInputService.InputBegan:Connect(function(c)
                     if c.KeyCode.Name == ChosenKey and not ChatTextBox:IsFocused() then
                         callback(ChosenKey)
                         return
                     end
-                end)
+                end))
 
-                UserInputService.InputEnded:Connect(function(c)
+                table.insert(shared.xsx_lib_connections, UserInputService.InputEnded:Connect(function(c)
                     if keyBindMode == "Hold" then
                         if c.KeyCode.Name == ChosenKey then
                             task.spawn(callback, ChosenKey)
                         end
                     end
-                end)
+                end))
             end
 
             UpdatePageSize()
