@@ -373,7 +373,7 @@ do
         local name = info.name or info.Name or info.title or info.Title or "UI Title"
         local size = info.size or info.Size or Vector2.new(504,604)
         local accent = info.accent or info.Accent or info.color or info.Color or theme.accent
-	local windowKeyBind = info.keybind or Enum.KeyCode.Insert
+	local windowKeyBind = info.Bind or info.bind or info.keybind or Enum.KeyCode.Insert
         --
         theme.accent = accent
         --
