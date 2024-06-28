@@ -1704,6 +1704,9 @@ function library:New(info)
             end)
 
             local ToggleFunctions = {}
+
+            ToggleFunctions.name = text
+
             function ToggleFunctions:Text(new)
                 new = new or text
                 toggleLabel.Text = new
