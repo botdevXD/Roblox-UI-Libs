@@ -3437,6 +3437,11 @@ function library:New(info)
             UpdatePageSize()
 
             local SliderFunctions = {}
+            function SliderFunctions:RemoveSlider()
+                sliderFrame:Destroy()
+                table.clear(self)
+            end
+
             function SliderFunctions:Value(new)
                 local ncalc1 = new - values.min
                 local ncalc2 = ncalc1 / calc1
