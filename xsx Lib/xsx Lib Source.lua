@@ -14,18 +14,18 @@ end
 table.clear(shared.xsx_lib_connections)
 
 -- / Locals
-local Workspace = game:GetService("Workspace")
-local Player = game:GetService("Players").LocalPlayer
+local Workspace = cloneref(game:GetService("Workspace"))
+local Player = cloneref(game:GetService("Players")).LocalPlayer
 local Mouse = Player:GetMouse()
 
 -- / Services
-local UserInputService = game:GetService("UserInputService")
-local TextService = game:GetService("TextService")
-local TweenService = game:GetService("TweenService")
-local RunService = game:GetService("RunService")
-local CoreGuiService = game:GetService("CoreGui")
-local ContentService = game:GetService("ContentProvider")
-local TeleportService = game:GetService("TeleportService")
+local UserInputService = cloneref(game:GetService("UserInputService"))
+local TextService = cloneref(game:GetService("TextService"))
+local TweenService = cloneref(game:GetService("TweenService"))
+local RunService = cloneref(game:GetService("RunService"))
+local CoreGuiService = cloneref(game:GetService("CoreGui"))
+local ContentService = cloneref(game:GetService("ContentProvider"))
+local TeleportService = cloneref(game:GetService("TeleportService"))
 
 -- / Tween table & function
 local TweenTable = {
